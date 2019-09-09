@@ -9,14 +9,14 @@ class Sources:
         self.url = url
         self.category = category
         self.language = language
-        self.country = "us"
-
+        self.country = country
+        
 class Articles:
     '''
     class that defines article object
     '''
     def __init__(self,source,author,title,description,url,image,time):
-        self.source = source['name']
+        self.source = source
         self.author = author
         self.title = title
         self.description = description

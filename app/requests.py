@@ -1,12 +1,17 @@
-from app import app
+from app import main
 import urllib.request,json
-from .models import sources,articles
+from .models import Sources,Articles
+import os
 
 # getting api key
-api_key = app.config['NEWS_API_KEY']
+api_key = None
 
 # getting base url
-base_url = app.config["NEWS_API_BASE_URL"]
+base_url = None
+def configure_request(app):
+    global api_key,base_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_API_BASE_URL']
 
 def get_sources(category):
     '''
@@ -17,9 +22,11 @@ def get_sources(category):
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
         sources_results = None
-        if get_sources_response['results']:
-            sources_list = get_sources_response['results']
+        if get_sources_response['sources']:
+            sources_list = get_sources_response['sources']
             sources_results = process_sources_results(sources_list)
+
+    return sources_results
 def get_articles(category):
     '''
     function that gets the json response to our url requests
@@ -32,13 +39,23 @@ def get_articles(category):
         if get_artiicles_response['results']:
             articles_list = get_articles_response['results']
             articles_results = process_articles_results(articles_list)
+
+    return articles_results
 def process_sources_results(sources_list): 
     '''
     function that processes the  sources results and transform them into a list of objects
     '''
     sources_results = []
     for source_item in sources_list:
-        source_object = Source(*source_item.values())
+        id = source_item.get('id')
+        name = source_item.get('name')
+        description = source_item.get('description')
+        url = source_item.get('url')
+        language = source_item.get('language')
+        country = source_item.get('country')
+        category = source_item.get('category')
+        
+        source_object = Sources(id,name,description,url,category,language,country)
         sources_results.append(source_object)
 
     return sources_results
@@ -54,8 +71,7 @@ def process_articles_results():
     return articles_results
 def get_the_sources(id):
     get_sources_details_url = base_url.format(id,api_key)
-    with urllib.request.urlopen(get_sources_details_url)
-as url:
+    with urllib.request.urlopen(url)as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
 
@@ -65,3 +81,10 @@ as url:
             sources_list = get_sources_response['articles']
             sources_results = process_results(sources_list)
     return sources_results
+def search_sources(category):
+    search_sources_url = 'https://newsapi.org/v2/{}?apiKey={}'.format(api_key,sources_category) 
+    with urllib.request.urlopen(search_sources_url)as url:
+        search_sources_data = url.read()
+        search_sources_response = json.loads(search_sources_data)
+        search_sources_results = process_results(search_sources_list)
+    return search_sources_results      
