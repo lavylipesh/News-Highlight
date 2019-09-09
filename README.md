@@ -15,7 +15,7 @@ You may view my project at this heroku link
 > User should see the image,description and time the news article was created
 > User should click an article and read the full article on the source website
 # Project Development
-```git clone https//github.com/lavylipesh/News-Highlight```
+```git clone https://github.com/lavylipesh/News-Highlight.git```
 ```cd News-Highlight```
 ```export NEWS_API_KEY```
 ```python3.6 manage.py server```
