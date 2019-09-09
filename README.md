@@ -8,3 +8,5 @@ Python3.6
 Heroku
 # Contact Information
 For more information on my projects please contact me at lilibethlangat@yahoo.com
+# Licence Information
+MIT Licence copyright (c) Lilibeth 2019
