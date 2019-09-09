@@ -30,3 +30,28 @@
 
 
 {% endblock %}
+{% block content %}
+<div class="container" id="news">
+    {% for articles in general %}
+    <div class="columns">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"> 
+                        {{ articles.name}}
+                </div>
+                <div class="panel-body">
+                    <p>
+                        {{ articles.description |truncate(100)}}
+
+                    </p>
+                    <a href="{{articles.url}}" class="btn btn-success btn-sm" style="margin-left:50px;">Visit {{article.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+
+
+{% endblock %}

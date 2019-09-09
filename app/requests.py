@@ -65,9 +65,18 @@ def process_articles_results():
     '''
     articles_results = []
     for article_item in articles_list:
-        if article_item['urlToImage']:
-            article_object = Article(*article_item.values())
-            articles_results.append(article_object)
+        source = article_item.get('source')
+        author = article_item.get('author')
+        title = article_item.get('title')
+        description = article_item('description')
+        url = article_item('url')
+        urlToImage = article_item('urlToImage')
+        publishedAt = article_item('publishedAt')
+        content = article_item('content')
+
+        article_object = Articles(source,author,title,description,url,urlToImage,publishedAt)
+        articles_results.append(article_object)
+    
     return articles_results
 def get_the_sources(id):
     get_sources_details_url = base_url.format(id,api_key)
