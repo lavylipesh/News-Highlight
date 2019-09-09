@@ -6,3 +6,5 @@ This is a python application that uses a News API to bring you top-headlines and
 # Technologies used
 Python3.6
 Heroku
+# Contact Information
+For more information on my projects please contact me at lilibethlangat@yahoo.com
