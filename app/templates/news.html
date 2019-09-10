@@ -6,7 +6,7 @@
     <h1>Sources:</h1>
     {{macro.displaysourcesList(sources)}}
 </div>
-<div>
-{{macro.displayarticlesList(news)}}
-</div>
+{% for articles in all%}
+    <img src="{{article.urlToImage}}" alt="">
+    <a href="{{}}"></a>
 {% endblock %}

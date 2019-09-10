@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<h1>SOURCES</h1>
 <div class="container" id="general">
     {% for sources in general %}
     <div class="colums">
@@ -19,33 +20,30 @@
                         {{ sources.description |truncate(100)}}
 
                     </p>
+                    
                     <a href="{{sources.url}}" class="btn btn-success btn-sm" style="margin-left:50px;">Visit {{sources.name}}</a>
                 </div>
             </div>
         </div>
     </div>
     {% endfor %}
-    
+       
 </div>
-
-
-{% endblock %}
-{% block content %}
+<h2 class="panel-heading text-center">ARTICLES</h2>
 <div class="container" id="news">
-    {% for articles in general %}
+    {% for articles in all %}
     <div class="columns">
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"> 
-                        {{ articles.name}}
+                        
                 </div>
                 <div class="panel-body">
-                    <p>
-                        {{ articles.description |truncate(100)}}
-
-                    </p>
+                    <p>{{ articles.author }}</p>
+                    <p>{{articles.description}}</p>
+                    <a href="/articles/{{articles.id}}" class="btn btn-primary">View Article</a>
                     <a href="{{articles.url}}" class="btn btn-success btn-sm" style="margin-left:50px;">Visit {{article.name}}</a>
-                </div>
+                </div>export MOVIE_API_KEY=<Your api key></Your>
             </div>
         </div>
     </div>
