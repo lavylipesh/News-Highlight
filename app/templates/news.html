@@ -1,16 +1,35 @@
 {% extends 'base.html'%}
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 
 
 {% block content %}
-{% for articles in all%}
-    <h2 class="panel-heading text-center" id="article"> NEWS ARTICLES</h2>
-    <img src="{{articles.urlToImage}}" alt="">
-    <p>{{articles.title}}</p>
-    <p>{{articles.author}}</p>
-    <p>{{articles.description}}</p>
-    <p>{{articles.url}}</p>
-    <p>{{articles.publishedAt}}</p>
-    <p>{{articles.content}}</p>
-    
-{% endfor %}
-{% endblock %}
+
+
+<div id="pesh">
+    <div class="container" >
+        <div class="columns" style="display: flex; flex-wrap: wrap;">
+                {% for articles in all%}
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <img class="card-img-top" src="{{articles.urlToImage}}" height="195px">
+                    <div class="panel-heading text-center">
+                            {{articles.author}}
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            {{ articles.description |truncate(100)}}
+                        </p>
+                        <a href="{{articles.url}}" class="btn btn-primary btn-sm">Visit
+                                {{articles.author}}</a>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+    {% endblock %}

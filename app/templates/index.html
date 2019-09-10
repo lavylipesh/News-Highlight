@@ -7,51 +7,51 @@
 
 {% block content %}
 <div id="pesh">
-<h1 class="panel-heading text-center" id="news"> NEWS SOURCES</h1>
-<div class="container" id="general">
-    {% for sources in general %}
-    <div class="colums">
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"> 
+    <h1 class="panel-heading text-center" id="news"> NEWS SOURCES</h1>
+    <div class="container" id="general">
+        {% for sources in general %}
+        <div class="colums">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
                         {{ sources.name}}
-                </div>
-                <div class="panel-body">
-                    <p>
-                        {{ sources.description |truncate(100)}}
-
-                    </p>
-                    
-                    <a href="{{sources.url}}" class="btn btn-primary btn-sm" style="margin-left:50px;">Visit {{sources.name}}</a>
-                    <a href="articles/{{sources.id}}" class="btn btn-info btn-sm">View articles</a>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            {{ sources.description |truncate(100)}}
+                        </p>
+                        <a href="{{sources.url}}" class="btn btn-primary btn-sm" style="margin-left:50px;">Visit
+                            {{sources.name}}</a>
+                        <a href="articles/{{sources.id}}" class="btn btn-success btn-sm">View articles</a>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
+
     </div>
-    {% endfor %}
-       
-</div>
-<h2 class="panel-heading text-center" id="article"> NEWS ARTICLES</h2>
-<div class="container" id="news">
-    {% for articles in all %}
-    <div class="columns">
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"> 
-                        
+    <h2 class="panel-heading text-center" id="article"> NEWS ARTICLES</h2>
+    <div class="container" id="news">
+        {% for articles in all %}
+        <div class="columns">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ articles.author }}</p>
+                        <p>{{articles.description}}</p>
+                        <a href="/articles/{{articles.id}}" class="btn btn-primary">View Article</a>
+                        <a href="{{articles.url}}" class="btn btn-success btn-sm" style="margin-left:50px;">Visit
+                            {{article.name}}</a>
+                    </div>export MOVIE_API_KEY=<Your api key></Your>
                 </div>
-                <div class="panel-body">
-                    <p>{{ articles.author }}</p>
-                    <p>{{articles.description}}</p>
-                    <a href="/articles/{{articles.id}}" class="btn btn-primary">View Article</a>
-                    <a href="{{articles.url}}" class="btn btn-success btn-sm" style="margin-left:50px;">Visit {{article.name}}</a>
-                </div>export MOVIE_API_KEY=<Your api key></Your>
             </div>
         </div>
+        {% endfor %}
+
     </div>
-    {% endfor %}
-
-</div>
 
 
-{% endblock %}
+    {% endblock %}
