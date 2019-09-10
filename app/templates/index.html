@@ -6,11 +6,12 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="panel-heading text-center"> NEWS SOURCES</h1>
+<div id="pesh">
+<h1 class="panel-heading text-center" id="news"> NEWS SOURCES</h1>
 <div class="container" id="general">
     {% for sources in general %}
     <div class="colums">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"> 
                         {{ sources.name}}
@@ -21,7 +22,7 @@
 
                     </p>
                     
-                    <a href="{{sources.url}}" class="btn btn-success btn-sm" style="margin-left:50px;">Visit {{sources.name}}</a>
+                    <a href="{{sources.url}}" class="btn btn-primary btn-sm" style="margin-left:50px;">Visit {{sources.name}}</a>
                 </div>
             </div>
         </div>
@@ -49,6 +50,7 @@
     </div>
     {% endfor %}
     
+</div>
 </div>
 
 
