@@ -10,3 +10,8 @@
     color:darkblue;
     font-size: 100px;
 }
+#article{
+    text-shadow:5px 5px rgb(245, 239, 239);
+    color:darkblue;
+    font-size:100px; 
+}

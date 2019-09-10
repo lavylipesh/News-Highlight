@@ -1,12 +1,16 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro %}
+
 
 {% block content %}
-<div class="container">
-    <h1>Sources:</h1>
-    {{macro.displaysourcesList(sources)}}
-</div>
 {% for articles in all%}
-    <img src="{{article.urlToImage}}" alt="">
-    <a href="{{}}"></a>
+    <h2 class="panel-heading text-center" id="article"> NEWS ARTICLES</h2>
+    <img src="{{articles.urlToImage}}" alt="">
+    <p>{{articles.title}}</p>
+    <p>{{articles.author}}</p>
+    <p>{{articles.description}}</p>
+    <p>{{articles.url}}</p>
+    <p>{{articles.publishedAt}}</p>
+    <p>{{articles.content}}</p>
+    
+{% endfor %}
 {% endblock %}

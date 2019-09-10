@@ -23,6 +23,7 @@
                     </p>
                     
                     <a href="{{sources.url}}" class="btn btn-primary btn-sm" style="margin-left:50px;">Visit {{sources.name}}</a>
+                    <a href="articles/{{sources.id}}" class="btn btn-info btn-sm">View articles</a>
                 </div>
             </div>
         </div>
@@ -30,7 +31,7 @@
     {% endfor %}
        
 </div>
-<h2 class="panel-heading text-center"> NEWS ARTICLES</h2>
+<h2 class="panel-heading text-center" id="article"> NEWS ARTICLES</h2>
 <div class="container" id="news">
     {% for articles in all %}
     <div class="columns">
@@ -49,8 +50,7 @@
         </div>
     </div>
     {% endfor %}
-    
-</div>
+
 </div>
 
 

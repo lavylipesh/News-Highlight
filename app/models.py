@@ -22,6 +22,6 @@ class Articles:
         self.description = description
         self.url = url
         self.urlToImage = urlToImage
-        self.publishedAt = time
+        self.publishedAt = publishedAt
         self.content = content
 

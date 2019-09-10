@@ -11,13 +11,13 @@ def index():
     title = 'Home - Welcome'
     general_news = get_sources("sources")
     return render_template('index.html',general=general_news)
-@main.route('/articles/<articles_id>')
+@main.route('/articles/<id>')
 def news(id):
     '''
     View articles page function that returns the articles details page and its data
     '''
-    news = get_articles("id")
-    return render_template('news.html',all = all_articles)
+    news = get_articles(id)
+    return render_template('news.html',all = news)
 @main.route('/sources/<int:id>')
 def getSource(id):
 
