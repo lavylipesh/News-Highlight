@@ -1,14 +1,14 @@
 #pesh{
-    background-image:url('https://cdn.pixabay.com/photo/2018/09/23/18/30/drop-3698073__340.jpg');
+    background-image:url('https://images.unsplash.com/photo-1516617442634-75371039cb3a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
     
 }
 #nav{
    color: brown;
 }
 #news{
-    text-shadow:5px 5px rgb(245, 239, 239);
-    color:darkblue;
-    font-size: 100px;
+  
+    color:rgb(186, 186, 252);
+    font-size: 80px;
 }
 #article{
     text-shadow:5px 5px rgb(245, 239, 239);
